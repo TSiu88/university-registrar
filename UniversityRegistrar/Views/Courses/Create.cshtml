@@ -2,13 +2,16 @@
   Layout = "_Layout";
 }
 
-@model UniversityRegistrar.Models.Course
+@model UniversityRegistrar.Models.Course;
 
-@* <h4>Add a new category</h4>
+<h4>Add a new course</h4>
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.Name)
-    @Html.TextBoxFor(model => model.Name)
-    <input type="submit" value="Add new category" />
+    @Html.LabelFor(model => model.CourseTitle)
+    @Html.TextBoxFor(model => model.CourseTitle)
+
+    @Html.LabelFor(model => model.CourseNumber)
+    @Html.TextBoxFor(model => model.CourseNumber)
+    <input type="submit" value="Add new course" />
 }
-<p>@Html.ActionLink("Show all categories", "Index")</p> *@
+<p>@Html.ActionLink("Show all courses", "Index")</p>

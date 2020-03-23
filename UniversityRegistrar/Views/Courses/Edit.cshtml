@@ -2,19 +2,22 @@
   Layout = "_Layout";
 }
 
-@model UniversityRegistrar.Models.Course
+@model UniversityRegistrar.Models.Course;
 
-@* <h2>Edit</h2>
+<h2>Edit</h2>
 
-<h4>Edit this category: @Html.DisplayFor(model => model.Name)</h4>
+<h4>Edit this course: @Html.DisplayFor(model => model.CourseTitle)</h4>
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.CategoryId)
+    @Html.HiddenFor(model => model.CourseId)
 
-    @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
+    @Html.LabelFor(model => model.CourseTitle)
+    @Html.EditorFor(model => model.CourseTitle)
+
+    @Html.LabelFor(model => model.CourseNumber)
+    @Html.EditorFor(model => model.CourseNumber)
 
     <input type="submit" value="Save" />
 }
-<p>@Html.ActionLink("Back to categories", "Index")</p> *@
+<p>@Html.ActionLink("Back to courses", "Index")</p>

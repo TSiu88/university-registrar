@@ -15,61 +15,60 @@ namespace UniversityRegistrar.Controllers
       _db = db;
     }
 
-    // public ActionResult Index()
-    // {
-    //   List<Category> model = _db.Categories.ToList();
-    //   return View(model);
-    // }
+    public ActionResult Index()
+    {
+      return View(_db.Courses.ToList());
+    }
 
-    // public ActionResult Create()
-    // {
-    //   return View();
-    // }
+    public ActionResult Create()
+    {
+      return View();
+    }
 
-    // [HttpPost]
-    // public ActionResult Create(Category category)
-    // {
-    //   _db.Categories.Add(category);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult Create(Course course)
+    {
+      _db.Courses.Add(course);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
-    // public ActionResult Details(int id)
-    // {
-    //   var thisCategory = _db.Categories
-    //       .Include(category => category.Items)
-    //       .ThenInclude(join => join.Item)
-    //       .FirstOrDefault(category => category.CategoryId == id);
-    //   return View(thisCategory);
-    // }
+    public ActionResult Details(int id)
+    {
+      var thisCourse = _db.Courses
+          .Include(course => course.Students)
+          .ThenInclude(join => join.Student)
+          .FirstOrDefault(course => course.CourseId == id);
+      return View(thisCourse);
+    }
 
-    // public ActionResult Edit(int id)
-    // {
-    //   var thisCategory = _db.Categories.FirstOrDefault(category => category.CategoryId == id);
-    //   return View(thisCategory);
-    // }
+    public ActionResult Edit(int id)
+    {
+      var thisCourse = _db.Courses.FirstOrDefault(course => course.CourseId == id);
+      return View(thisCourse);
+    }
 
-    // [HttpPost]
-    // public ActionResult Edit(Category category)
-    // {
-    //   _db.Entry(category).State = EntityState.Modified;
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult Edit(Course course)
+    {
+      _db.Entry(course).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
-    // public ActionResult Delete(int id)
-    // {
-    //   var thisCategory = _db.Categories.FirstOrDefault(category => category.CategoryId == id);
-    //   return View(thisCategory);
-    // }
+    public ActionResult Delete(int id)
+    {
+      var thisCourse = _db.Courses.FirstOrDefault(course => course.CourseId == id);
+      return View(thisCourse);
+    }
 
-    // [HttpPost, ActionName("Delete")]
-    // public ActionResult DeleteConfirmed(int id)
-    // {
-    //   var thisCategory = _db.Categories.FirstOrDefault(category => category.CategoryId == id);
-    //   _db.Categories.Remove(thisCategory);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisCourse = _db.Courses.FirstOrDefault(course => course.CourseId == id);
+      _db.Courses.Remove(thisCourse);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
