@@ -14,16 +14,20 @@
 
     @Html.LabelFor(model => model.Name)
     @Html.EditorFor(model => model.Name)
-
+    <br>
+    <br>
     @Html.LabelFor(model => model.EnrollmentDate)
     @Html.EditorFor(model => model.EnrollmentDate, new {type = "date"})
-
+    <br>
+    <br>
     @Html.Label("Select major")
-    @Html.DropDownList("DepartmentId")
-
+    @Html.DropDownList("DepartmentId", "Select Major")
+    <br>
+    <br>
     @Html.Label("Select course")
     @Html.DropDownList("CourseId", "Select Course")
-
+    <br>
+    <br>
     <input type="submit" value="Save" />
 }
 

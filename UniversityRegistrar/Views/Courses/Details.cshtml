@@ -7,7 +7,7 @@
 <h2>Course Details</h2>
 <hr />
 <h3>Course Title: @Html.DisplayFor(model => model.CourseTitle) ( @Html.DisplayFor(model => model.CourseNumber) )</h3>
-<h4>@Html.DisplayFor(model => model.Departments)</h4>
+<h4>Department: @Html.DisplayFor(model => model.Departments)</h4>
 
 
 @if(@Model.Students.Count == 0)

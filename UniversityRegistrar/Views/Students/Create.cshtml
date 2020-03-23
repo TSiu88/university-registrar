@@ -17,12 +17,13 @@
     <br>
     <br>
     @Html.Label("Select major")
-    @Html.DropDownList("DepartmentId")
+    @Html.DropDownList("DepartmentId", "Select Major")
     <br>
     <br>
     @Html.Label("Select course")
     @Html.DropDownList("CourseId", "Select Course")
-
+    <br>
+    <br>
     <input type="submit" value="Add new student" class="btn btn-default" />
 }
 <p>@Html.ActionLink("Show all students", "Index")</p>

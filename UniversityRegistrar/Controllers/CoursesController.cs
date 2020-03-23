@@ -3,6 +3,7 @@ using UniversityRegistrar.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace UniversityRegistrar.Controllers
 {
@@ -27,9 +28,10 @@ namespace UniversityRegistrar.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Course course)
+    public ActionResult Create(Course course, int DepartmentId)
     {
       _db.Courses.Add(course);
+      _db.CourseDepartment.Add(new CourseDepartment() { DepartmentId = DepartmentId, CourseId = course.CourseId });
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
@@ -40,7 +42,7 @@ namespace UniversityRegistrar.Controllers
           .Include(course => course.Students)
           .ThenInclude(join => join.Student)
           .Include(course => course.Departments)
-          .ThenInclude(join => join.Department)          
+          .ThenInclude(join => join.Department)   
           .FirstOrDefault(course => course.CourseId == id);
       return View(thisCourse);
     }

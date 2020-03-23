@@ -9,12 +9,16 @@
 {
     @Html.LabelFor(model => model.CourseTitle)
     @Html.TextBoxFor(model => model.CourseTitle)
-
+    <br>
+    <br>
     @Html.LabelFor(model => model.CourseNumber)
     @Html.TextBoxFor(model => model.CourseNumber)
-
+    <br>
+    <br>
     @Html.LabelFor(model => model.Departments)
     @Html.DropDownList("DepartmentId")
+    <br>
+    <br>
     <input type="submit" value="Add new course" />
 }
 <p>@Html.ActionLink("Show all courses", "Index")</p>

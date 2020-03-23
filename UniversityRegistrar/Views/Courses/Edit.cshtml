@@ -14,12 +14,16 @@
 
     @Html.LabelFor(model => model.CourseTitle)
     @Html.EditorFor(model => model.CourseTitle)
-
+    <br>
+    <br>
     @Html.LabelFor(model => model.CourseNumber)
     @Html.EditorFor(model => model.CourseNumber)
-
+    <br>
+    <br>
     @Html.LabelFor(model => model.Departments)
     @Html.DropDownList("DepartmentId")
+    <br>
+    <br>
     <input type="submit" value="Save" />
 }
 <p>@Html.ActionLink("Back to courses", "Index")</p>
