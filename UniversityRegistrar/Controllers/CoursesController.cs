@@ -38,6 +38,7 @@ namespace UniversityRegistrar.Controllers
 
     public ActionResult Details(int id)
     {
+    ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "DepartmentTitle");
       var thisCourse = _db.Courses
           .Include(course => course.Students)
           .ThenInclude(join => join.Student)

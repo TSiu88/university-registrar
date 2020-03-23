@@ -22,10 +22,7 @@
     <br>
     @Html.Label("Select major")
     @Html.DropDownList("DepartmentId", "Select Major")
-    <br>
-    <br>
-    @Html.Label("Select course")
-    @Html.DropDownList("CourseId", "Select Course")
+    @Html.HiddenFor(model => model.Department.Department.DepartmentId)
     <br>
     <br>
     <input type="submit" value="Save" />

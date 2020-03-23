@@ -7,8 +7,21 @@
 <h2>Course Details</h2>
 <hr />
 <h3>Course Title: @Html.DisplayFor(model => model.CourseTitle) ( @Html.DisplayFor(model => model.CourseNumber) )</h3>
-<h4>Department: @Html.DisplayFor(model => model.Departments)</h4>
 
+@if(@Model.Departments.Count == 0)
+{
+  <p>This course does not have any related departments.</p>
+}
+else
+{
+  <h4>Departments related to this course:</h4>
+  <ul>
+  @foreach(var join in Model.Departments)
+  {
+    <li>@join.Department.DepartmentTitle</li>
+  }
+  </ul>
+}
 
 @if(@Model.Students.Count == 0)
 {
@@ -24,6 +37,8 @@ else
   }
   </ul>
 }
+
+
 
 <p>@Html.ActionLink("Back to categories", "Index")</p>
 <p>@Html.ActionLink("Edit Course", "Edit", new { id = Model.CourseId })</p>

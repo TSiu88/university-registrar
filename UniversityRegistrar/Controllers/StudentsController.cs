@@ -47,6 +47,7 @@ namespace UniversityRegistrar.Controllers
           .Include(student => student.Courses)
           .ThenInclude(join => join.Course)
           .Include(student => student.Department)
+          .ThenInclude(join => join.Department)
           .FirstOrDefault(student => student.StudentId == id);
       return View(thisStudent);
     }
@@ -62,11 +63,12 @@ namespace UniversityRegistrar.Controllers
     [HttpPost]
     public ActionResult Edit(Student student, int CourseId, int DepartmentId)
     {
-      if (CourseId != 0)
-      {
-        _db.CourseStudent.Add(new CourseStudent() { CourseId = CourseId, StudentId = student.StudentId });
-        _db.DepartmentStudent.Add(new DepartmentStudent() { DepartmentId = DepartmentId, StudentId = student.StudentId });
-      }
+      // if (CourseId != 0)
+      // {
+      //   _db.CourseStudent.Add(new CourseStudent() { CourseId = CourseId, StudentId = student.StudentId });
+      //   // _db.DepartmentStudent.Add(new DepartmentStudent() { DepartmentId = DepartmentId, StudentId = student.StudentId });
+      // }
+      _db.DepartmentStudent.Add(new DepartmentStudent() { DepartmentId = DepartmentId, StudentId = student.StudentId });
       _db.Entry(student).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
