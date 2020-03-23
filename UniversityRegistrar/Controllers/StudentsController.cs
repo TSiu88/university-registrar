@@ -109,7 +109,23 @@ namespace UniversityRegistrar.Controllers
       var joinEntry = _db.CourseStudent.FirstOrDefault(entry => entry.CourseStudentId == joinId);
       _db.CourseStudent.Remove(joinEntry);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", new {id = joinEntry.StudentId});
+    }
+
+    [HttpPost]
+    public ActionResult CourseCompleted(int joinId)
+    {
+      var joinEntry = _db.CourseStudent.FirstOrDefault(entry => entry.CourseStudentId == joinId);
+      if(joinEntry.IsCompleted == false)
+      {
+        joinEntry.IsCompleted = true;
+      }
+      else
+      {
+        joinEntry.IsCompleted = false;
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Details", new {id = joinEntry.StudentId});
     }
   }
 }

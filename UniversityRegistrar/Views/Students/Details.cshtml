@@ -21,10 +21,19 @@ else
   @foreach(var join in Model.Courses)
   {
     <li>@join.Course.CourseTitle</li>
+    <ul>
+      <li>Completed?: @join.IsCompleted </li>
+    </ul>
+
     @using (Html.BeginForm("DeleteCourse", "Students"))
     {
       @Html.Hidden("joinId", @join.CourseStudentId)
       <input type="submit" value="Delete"/>
+    }
+    @using (Html.BeginForm("CourseCompleted", "Students"))
+    {
+      @Html.Hidden("joinId", @join.CourseStudentId)
+      <input type="submit" value="Toggle Completed"/>
     }
   }
   </ul>

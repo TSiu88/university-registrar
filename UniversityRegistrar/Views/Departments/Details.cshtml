@@ -8,6 +8,21 @@
 <hr />
 <h3>Department Title: @Html.DisplayFor(model => model.DepartmentTitle)</h3>
 
+@if(@Model.Courses.Count == 0)
+{
+  <p>This Department does not have any related courses.</p>
+}
+else
+{
+  <h4>Courses enrolled in this Department:</h4>
+  <ul>
+  @foreach(var join in Model.Courses)
+  {
+    <li>@join.Course.CourseTitle</li>
+  }
+  </ul>
+}
+
 
 @if(@Model.Students.Count == 0)
 {
@@ -24,6 +39,6 @@ else
   </ul>
 }
 
-<p>@Html.ActionLink("Back to categories", "Index")</p>
+<p>@Html.ActionLink("Back to departments", "Index")</p>
 <p>@Html.ActionLink("Edit Department", "Edit", new { id = Model.DepartmentId })</p>
 <p>@Html.ActionLink("Delete Department", "Delete", new { id = Model.DepartmentId })</p>

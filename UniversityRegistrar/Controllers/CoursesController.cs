@@ -56,8 +56,10 @@ namespace UniversityRegistrar.Controllers
     }
 
     [HttpPost]
-    public ActionResult Edit(Course course)
+    public ActionResult Edit(Course course, int departmentId)
     {
+      var courseDepartmentEntry = _db.CourseDepartment.FirstOrDefault(x => x.CourseId == course.CourseId);
+      courseDepartmentEntry.DepartmentId = departmentId;
       _db.Entry(course).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
