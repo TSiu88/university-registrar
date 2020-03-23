@@ -32,12 +32,12 @@ else
 {
   <h4>Students enrolled in this Department:</h4>
   <ul>
-  
   @foreach(var join in Model.Students)
   {
     <li>@join.Student.Name</li>
   }
   </ul>
+
 }
 
 <p>@Html.ActionLink("Back to departments", "Index")</p>

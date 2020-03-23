@@ -30,7 +30,7 @@ namespace UniversityRegistrar.Controllers
     public ActionResult Create(Department department)
     {
       _db.Departments.Add(department);
-      _db.SaveChanges();
+      _db.SaveourChanges();
       return RedirectToAction("Index");
     }
 
@@ -43,15 +43,20 @@ namespace UniversityRegistrar.Controllers
           .ThenInclude(join => join.Course)
           .FirstOrDefault(department => department.DepartmentId == id);  
       
-      var thisStudents = _db.Departments
-          .Include(department => department.Students)
-          .ThenInclude(join => join.Student)
-          .FirstOrDefault(department => department.DepartmentId == id);  
+      // var thisStudents = _db.Departments
+      //     .Include(department => department.Students)
+      //     .ThenInclude(join => join.Student)
+      //     .FirstOrDefault(department => department.DepartmentId == id);  
 
-      foreach (DepartmentStudent student in thisStudents)
-      {
+      // foreach (DepartmentStudent student in thisStudents)
+      // {
         
-      }
+      // }
+
+      // we inside department that has courses and students. We need to check student courses, compare their id's with department courses id's and check were they completed or not.
+
+      // CourseDepartment.CourseID == Student.Courses.CourseId
+      // Student.Department.DepartmentId == Courses.Departments.DepartmentId
 
     
       return View(thisDepartment);
