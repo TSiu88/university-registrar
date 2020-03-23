@@ -22,6 +22,7 @@ namespace UniversityRegistrar.Controllers
 
     public ActionResult Create()
     {
+      ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "DepartmentTitle");
       return View();
     }
 
@@ -38,12 +39,15 @@ namespace UniversityRegistrar.Controllers
       var thisCourse = _db.Courses
           .Include(course => course.Students)
           .ThenInclude(join => join.Student)
+          .Include(course => course.Departments)
+          .ThenInclude(join => join.Department)          
           .FirstOrDefault(course => course.CourseId == id);
       return View(thisCourse);
     }
 
     public ActionResult Edit(int id)
     {
+      ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "DepartmentTitle");
       var thisCourse = _db.Courses.FirstOrDefault(course => course.CourseId == id);
       return View(thisCourse);
     }

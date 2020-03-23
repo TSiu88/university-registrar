@@ -16,8 +16,8 @@
     @Html.TextBoxFor(model => model.EnrollmentDate, new {type = "date"})
     <br>
     <br>
-    @Html.LabelFor(model => model.Department)
-    @Html.DropDownList("DepartmentId", "Select Major")
+    @Html.Label("Select major")
+    @Html.DropDownList("DepartmentId")
     <br>
     <br>
     @Html.Label("Select course")

@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-@model UniversityRegistrar.Models.Course;
+@model UniversityRegistrar.Models.Course
 
 <h2>Edit</h2>
 
@@ -18,6 +18,8 @@
     @Html.LabelFor(model => model.CourseNumber)
     @Html.EditorFor(model => model.CourseNumber)
 
+    @Html.LabelFor(model => model.Departments)
+    @Html.DropDownList("DepartmentId")
     <input type="submit" value="Save" />
 }
 <p>@Html.ActionLink("Back to courses", "Index")</p>

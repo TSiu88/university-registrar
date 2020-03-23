@@ -24,16 +24,18 @@ namespace UniversityRegistrar.Controllers
     public ActionResult Create()
     {
       ViewBag.CourseId = new SelectList(_db.Courses, "CourseId", "CourseTitle");
+      ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "DepartmentTitle");
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Student student, int CourseId)
+    public ActionResult Create(Student student, int CourseId, int DepartmentId)
     {
       _db.Students.Add(student);
       if (CourseId != 0)
       {
         _db.CourseStudent.Add(new CourseStudent() { CourseId = CourseId, StudentId = student.StudentId });
+        _db.DepartmentStudent.Add(new DepartmentStudent() { DepartmentId = DepartmentId, StudentId = student.StudentId });
       }
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -44,6 +46,7 @@ namespace UniversityRegistrar.Controllers
       var thisStudent = _db.Students
           .Include(student => student.Courses)
           .ThenInclude(join => join.Course)
+          .Include(student => student.Department)
           .FirstOrDefault(student => student.StudentId == id);
       return View(thisStudent);
     }
@@ -52,15 +55,17 @@ namespace UniversityRegistrar.Controllers
     {
       var thisStudent = _db.Students.FirstOrDefault(students => students.StudentId == id);
       ViewBag.CourseId = new SelectList(_db.Courses, "CourseId", "CourseTitle");
+      ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "DepartmentTitle");
       return View(thisStudent);
     }
 
     [HttpPost]
-    public ActionResult Edit(Student student, int CourseId)
+    public ActionResult Edit(Student student, int CourseId, int DepartmentId)
     {
       if (CourseId != 0)
       {
         _db.CourseStudent.Add(new CourseStudent() { CourseId = CourseId, StudentId = student.StudentId });
+        _db.DepartmentStudent.Add(new DepartmentStudent() { DepartmentId = DepartmentId, StudentId = student.StudentId });
       }
       _db.Entry(student).State = EntityState.Modified;
       _db.SaveChanges();

@@ -18,8 +18,8 @@
     @Html.LabelFor(model => model.EnrollmentDate)
     @Html.EditorFor(model => model.EnrollmentDate, new {type = "date"})
 
-    @Html.LabelFor(model => model.Department)
-    @Html.DropDownList("DepartmentId", "Select Major")
+    @Html.Label("Select major")
+    @Html.DropDownList("DepartmentId")
 
     @Html.Label("Select course")
     @Html.DropDownList("CourseId", "Select Course")
