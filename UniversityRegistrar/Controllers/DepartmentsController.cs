@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using UniversityRegistrar.Models;
-using System.Collections.Generic;
+using System.Collections.Generic;\
+using.System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
@@ -40,7 +41,19 @@ namespace UniversityRegistrar.Controllers
           .ThenInclude(join => join.Student)
           .Include(department => department.Courses)
           .ThenInclude(join => join.Course)
-          .FirstOrDefault(department => department.DepartmentId == id);
+          .FirstOrDefault(department => department.DepartmentId == id);  
+      
+      var thisStudents = _db.Departments
+          .Include(department => department.Students)
+          .ThenInclude(join => join.Student)
+          .FirstOrDefault(department => department.DepartmentId == id);  
+
+      foreach (DepartmentStudent student in thisStudents)
+      {
+        
+      }
+
+    
       return View(thisDepartment);
     }
 
