@@ -11,6 +11,7 @@
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.StudentId)
+    @Html.HiddenFor(model => model.Department.Department.DepartmentTitle)
 
     @Html.LabelFor(model => model.Name)
     @Html.EditorFor(model => model.Name)
@@ -21,8 +22,7 @@
     <br>
     <br>
     @Html.Label("Select major")
-    @Html.DropDownList("DepartmentId", "Select Major")
-    @Html.HiddenFor(model => model.Department.Department.DepartmentId)
+    @Html.DropDownList("DepartmentId");
     <br>
     <br>
     <input type="submit" value="Save" />

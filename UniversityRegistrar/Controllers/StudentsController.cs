@@ -61,14 +61,10 @@ namespace UniversityRegistrar.Controllers
     }
 
     [HttpPost]
-    public ActionResult Edit(Student student, int CourseId, int DepartmentId)
+    public ActionResult Edit(Student student, int departmentId)
     {
-      // if (CourseId != 0)
-      // {
-      //   _db.CourseStudent.Add(new CourseStudent() { CourseId = CourseId, StudentId = student.StudentId });
-      //   // _db.DepartmentStudent.Add(new DepartmentStudent() { DepartmentId = DepartmentId, StudentId = student.StudentId });
-      // }
-      _db.DepartmentStudent.Add(new DepartmentStudent() { DepartmentId = DepartmentId, StudentId = student.StudentId });
+      var departmentStudentEntry = _db.DepartmentStudent.FirstOrDefault(x => x.StudentId == student.StudentId);
+      departmentStudentEntry.DepartmentId = departmentId;
       _db.Entry(student).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
