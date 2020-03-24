@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using UniversityRegistrar.Models;
-using System.Collections.Generic;\
-using.System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
@@ -30,7 +29,7 @@ namespace UniversityRegistrar.Controllers
     public ActionResult Create(Department department)
     {
       _db.Departments.Add(department);
-      _db.SaveourChanges();
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
 

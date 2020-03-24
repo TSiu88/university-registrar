@@ -16,6 +16,8 @@ namespace UniversityRegistrar.Models
 
         public DateTime EnrollmentDate {get; set;}
         public DepartmentStudent Department { get; set;}
+        
+        public virtual ApplicationUser User { get; set; }
         public ICollection<CourseStudent> Courses { get;}
         // public ICollection<DepartmentStudent> Departments { get;}
     }

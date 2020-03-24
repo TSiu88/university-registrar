@@ -88,7 +88,7 @@ _This program also makes use of SQL databases. We recommend using MySQL Workbenc
 * As a registrar, I want to be able to list out all of the courses or all of the students in a particular department, so that I can inform the counselors which departments need more students and which need more courses.
 * As a registrar, I want to change a student's file to show that they have completed a course, so that I can see if they need to take the course again.
 * As a registrar, I want to list out all of the courses a student has taken, so that I can see if they have met their degree requirements.
-* As a registrar, I want to see how many students have not completed courses in any particular departments, so that I can tell the administration which departments need help.
+<!-- * As a registrar, I want to see how many students have not completed courses in any particular departments, so that I can tell the administration which departments need help. -->
 
 
 ## Screenshots
