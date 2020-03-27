@@ -1,8 +1,8 @@
 # _[University Registrar](https://github.com/TSiu88/university-registrar)_
 
-#### _Brief desc of Project, 03.23.2020_
+#### _Registration Tracker, 03.23.2020_
 
-#### By _**Tiffany Siu and Andriy Veremyeyev**_
+#### _By: **Tiffany Siu and Andriy Veremyeyev**_
 
 [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 ![LastCommit](https://img.shields.io/github/last-commit/tsiu88/university-registrar)
@@ -16,23 +16,20 @@
     - [Requirements to Run](#requirements-to-run)
     - [Instructions](#instructions)
     - [Other Technologies Used](#other-technologies-used)
-3. [Notable Features](#notable-features)
-4. [Specifications](#specifications)
-5. [User Stories](#user-stories)
-6. [Screenshots](#screenshots)
-7. [Known Bugs](#known-bugs)
-8. [Support and Contact Details](#support-and-contact-details)
-9. [License](#license)
+3. [User Stories](#user-stories)
+4. [Known Bugs](#known-bugs)
+5. [Support and Contact Details](#support-and-contact-details)
+6. [License](#license)
 ---
 ## Description
+
+This application tracks students, courses, and departments.  Includes Identity authentication for adding students.
 
 #### 3/23/20 Work from Home Summary
 - University Registrar
 - Struggles: 
   - Third many-to-many class and connections to other classes/controllers
   - Connecting student's completed courses in a department
-
-_README under construction_
 
 ## Setup/Installation Requirements
 
@@ -70,16 +67,6 @@ _This program also makes use of SQL databases. We recommend using MySQL Workbenc
 * _Razor_
 * _Markdown_
 
-## Notable Features
-<!-- _features that make project stand out_ -->
-
-## Specifications
-
-<!-- * _List of features the program should do, from simplest to more complex, handling all possible cases.  Can do as text or put in table, with example input and output_
-  * _Example Input: expected input_
-  * _Example Output: expected output_
- -->
-
 ## User Stories
 * As a registrar, I want to enter a student, so I can keep track of all students enrolled at this University. I should be able to provide a name and date of enrollment.
 * As a registrar, I want to enter a course, so I can keep track of all of the courses the University offers. I should be able to provide a course name and a course number (ex. HIST100).
@@ -89,19 +76,6 @@ _This program also makes use of SQL databases. We recommend using MySQL Workbenc
 * As a registrar, I want to change a student's file to show that they have completed a course, so that I can see if they need to take the course again.
 * As a registrar, I want to list out all of the courses a student has taken, so that I can see if they have met their degree requirements.
 <!-- * As a registrar, I want to see how many students have not completed courses in any particular departments, so that I can tell the administration which departments need help. -->
-
-
-## Screenshots
-
-<!-- _Here is a snippet of what the input looks like:_
-
-![Snippet of input fields](img/snippet1.png)
-
-_Here is a preview of what the output looks like:_
-
-![Snippet of output box](img/snippet2.png) -->
-
-<!-- _{Show pictures using ![alt text](image.jpg), show what library does as concisely as possible but don't need to explain how project solves problem from `code`_ -->
 
 ## Known Bugs
 
